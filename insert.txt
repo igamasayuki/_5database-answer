@@ -1,0 +1,111 @@
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+
+CREATE TABLE employees (
+  id integer PRIMARY KEY ,
+  name text NOT NULL ,
+  age integer ,
+  gender text ,
+  department_id integer
+);
+
+CREATE TABLE departments (
+  id integer PRIMARY KEY ,
+  name text
+);
+
+INSERT INTO employees VALUES (1, '山田太郎', 38, '男性', 3);
+INSERT INTO employees VALUES (2, '山田花子', 52, '女性', 1);
+INSERT INTO employees VALUES (3, '鈴木一朗', 23, '男性', 2);
+INSERT INTO employees VALUES (4, '鈴木一子', 44, '女性', 1);
+INSERT INTO employees VALUES (5, '佐藤次郎', 18, '男性', 5);
+
+INSERT INTO departments VALUES (1, '管理部');
+INSERT INTO departments VALUES (2, '人事部');
+INSERT INTO departments VALUES (3, '開発部');
+INSERT INTO departments VALUES (4, '営業部');
+
+-- ここまで上半分
+=============================================================
+-- ここから下半分
+
+-- GROUP BY とHAVINGで使用するSQL文
+
+DROP TABLE IF EXISTS employees;
+CREATE TABLE employees (
+       id  integer primary key,
+       name text not null,
+       age integer,
+       gender text,
+       department_name varchar(10)
+);
+
+INSERT INTO employees VALUES(1,'後藤',41,'男','開発部');	
+INSERT INTO employees VALUES(2,'佐藤',29,'女','管理部');
+INSERT INTO employees VALUES(3,'吉田',38,'男','開発部');
+INSERT INTO employees VALUES(4,'寺田',null,'女','経理部');
+INSERT INTO employees VALUES(5,'内田',55,'男','経理部');
+INSERT INTO employees VALUES(6,'伊藤',48,'男','管理部');
+
+
+
+-- 確認用SQL
+-- 集約関数
+SELECT
+ count(*),count(age),sum(age),avg(age),max(age),min(age),count(gender),count(department_name)
+FROM
+ employees;
+
+-- GROUP BY
+SELECT
+ count(*),count(age),sum(age),avg(age),max(age),min(age),count(gender),count(department_name),department_name
+FROM
+ employees
+GROUP BY
+ department_name;
+
+-- 40歳を超える人を出力
+SELECT
+ id, name, age , gender, department_name
+FROM
+ employees
+WHERE
+ age > 40;
+
+-- 開発部の人を出力
+SELECT
+ id, name, age , gender, department_name
+FROM
+ employees
+WHERE
+ department_name = '開発部';
+
+-- 部署の平均年齢が40を超える部署を出力
+SELECT
+ count(*),count(age),sum(age),avg(age),max(age),min(age),count(gender),count(department_name),department_name
+FROM
+ employees
+GROUP BY
+ department_name
+HAVING
+ avg(age) > 40;
+
+ -- 開発部の人を出力
+ SELECT
+ count(*),count(age),sum(age),avg(age),max(age),min(age),count(gender),count(department_name),department_name
+FROM
+ employees
+GROUP BY
+ department_name
+HAVING
+ department_name = '開発部';
+
+ -- 開発部の人を出力(検索スピードは遅い)
+SELECT
+ count(*),count(age),sum(age),avg(age),max(age),min(age),count(gender),count(department_name),department_name
+FROM
+ employees
+WHERE
+ department_name = '開発部'
+GROUP BY
+ department_name;
