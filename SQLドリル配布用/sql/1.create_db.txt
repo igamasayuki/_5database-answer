@@ -1,0 +1,9 @@
+—- (Windowsの場合は)pgAdmin上で手動でデータベースを作る
+-- (Macの場合)psql -U postgres　をした後、以下のSQLを実行する
+
+CREATE DATABASE sql_drill
+  WITH ENCODING='UTF8'
+       OWNER=postgres
+       CONNECTION LIMIT=-1;
+
+(Macの場合)接続方法は psql -U postgres sql_drill
