@@ -1,0 +1,10 @@
+DROP TABLE BelongTo;
+DROP TABLE Categories;
+DROP TABLE CustomerClasses;
+DROP TABLE Customers;
+DROP TABLE Departments;
+DROP TABLE Employees;
+DROP TABLE Prefecturals;
+DROP TABLE Products;
+DROP TABLE Salary;
+DROP TABLE Sales;
