@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS departments;
 
 CREATE TABLE employees (
-  id integer PRIMARY KEY ,
+  id bigint PRIMARY KEY ,
   name text NOT NULL ,
   age integer ,
   gender text ,
@@ -10,7 +10,7 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE departments (
-  id integer PRIMARY KEY ,
+  id bigint PRIMARY KEY ,
   name text
 );
 
@@ -33,7 +33,7 @@ INSERT INTO departments VALUES (4, '営業部');
 
 DROP TABLE IF EXISTS employees;
 CREATE TABLE employees (
-       id  integer primary key,
+       id  bigint primary key,
        name text not null,
        age integer,
        gender text,

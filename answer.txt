@@ -1,6 +1,6 @@
 --演習１
 CREATE TABLE employees (
-  id integer PRIMARY KEY ,
+  id bigint PRIMARY KEY ,
   name text NOT NULL ,
   age integer ,
   gender text ,
@@ -8,7 +8,7 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE departments (
-  id integer PRIMARY KEY ,
+  id bigint PRIMARY KEY ,
   name text 
 );
 
@@ -38,7 +38,7 @@ DELETE FROM employees WHERE department_id = 1;
 
 --演習5
 CREATE TABLE members(
-  id serial PRIMARY KEY,
+  id bigserial PRIMARY KEY,
   name varchar(20) NOT NULL,
   email varchar(50) NOT NULL UNIQUE,
   gender integer NOT NULL,
@@ -86,7 +86,7 @@ UPDATE members SET deleted=true WHERE name='武田信玄';
 
 --演習9
 CREATE TABLE periods(
-  id integer PRIMARY KEY,
+  id bigint PRIMARY KEY,
   name varchar(10) NOT NULL
 );
 
