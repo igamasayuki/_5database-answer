@@ -6,7 +6,7 @@ CREATE TABLE employees (
   name text NOT NULL ,
   age integer ,
   gender text ,
-  department_id integer
+  department_id bigint
 );
 
 CREATE TABLE departments (

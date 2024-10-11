@@ -4,7 +4,7 @@ CREATE TABLE employees (
   name text NOT NULL ,
   age integer ,
   gender text ,
-  department_id integer
+  department_id bigint
 );
 
 CREATE TABLE departments (
@@ -44,7 +44,7 @@ CREATE TABLE members(
   gender integer NOT NULL,
   birth_date date NOT NULL,
   aged integer NOT NULL,
-  period_id integer NOT NULL,
+  period_id bigint NOT NULL,
   deleted boolean DEFAULT false
 );
 
